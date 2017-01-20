@@ -1,0 +1,209 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://Scripts/.gd" type="Script" id=1]
+[ext_resource path="res://Textures/blauw.png" type="Texture" id=2]
+[ext_resource path="res://Textures/roze.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[node name="World" type="Node2D"]
+
+[node name="Player" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( 283.75, 201.071 )
+transform/scale = Vector2( 1.03766, 1 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 2
+mass = 1.0
+friction = 0.0
+bounce = 0.0
+gravity_scale = 25.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 1 )
+__meta__ = { "_edit_group_":true }
+player_speed = 1000
+jumpforce = 1000
+acceleration = 25
+extra_grav = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="PlayerSprite" type="Sprite" parent="Player"]
+
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 2, 2 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = true
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+
+enabled = true
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+
+[node name="Ground" type="KinematicBody2D" parent="." groups=[ "Ground" ]]
+
+transform/pos = Vector2( 534.17, 472.89 )
+transform/scale = Vector2( 12.123, 1 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="GroundSprite" type="Sprite" parent="Ground"]
+
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="Ground2" type="KinematicBody2D" parent="."]
+
+transform/pos = Vector2( 139.717, 364.472 )
+transform/rot = 89.9056
+transform/scale = Vector2( 4.3594, 1 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="GroundSprite" type="Sprite" parent="Ground2"]
+
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="Ground3" type="KinematicBody2D" parent="."]
+
+transform/pos = Vector2( 889.532, 365.472 )
+transform/rot = 89.9056
+transform/scale = Vector2( 4.3594, 1 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="GroundSprite" type="Sprite" parent="Ground3"]
+
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="Ground1" type="KinematicBody2D" parent="."]
+
+transform/pos = Vector2( 548.876, 453.295 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground1"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="GroundSprite" type="Sprite" parent="Ground1"]
+
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="Ground4" type="KinematicBody2D" parent="."]
+
+transform/pos = Vector2( 704.718, 313.858 )
+transform/scale = Vector2( 0.994881, 1 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground4"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="GroundSprite" type="Sprite" parent="Ground4"]
+
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+
