@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://Scripts/.gd" type="Script" id=1]
+[ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://Textures/blauw.png" type="Texture" id=2]
 [ext_resource path="res://Textures/roze.png" type="Texture" id=3]
 
@@ -46,7 +46,7 @@ __meta__ = { "_edit_group_":true }
 player_speed = 1000
 jumpforce = 1000
 acceleration = 25
-extra_grav = 25
+extra_grav = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 
@@ -85,9 +85,11 @@ cast_to = Vector2( 0, 50 )
 layer_mask = 1
 type_mask = 15
 
-[node name="Ground" type="KinematicBody2D" parent="." groups=[ "Ground" ]]
+[node name="Grounds" type="Node2D" parent="."]
 
-transform/pos = Vector2( 534.17, 472.89 )
+[node name="Ground" type="KinematicBody2D" parent="Grounds" groups=[ "Ground" ]]
+
+transform/pos = Vector2( 534.17, 471.89 )
 transform/scale = Vector2( 12.123, 1 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
@@ -98,22 +100,21 @@ collision/mask = 1
 collision/margin = 0.08
 __meta__ = { "_edit_group_":true }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grounds/Ground"]
 
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
-[node name="GroundSprite" type="Sprite" parent="Ground"]
+[node name="GroundSprite" type="Sprite" parent="Grounds/Ground"]
 
 transform/scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
-[node name="Ground2" type="KinematicBody2D" parent="."]
+[node name="Ground1" type="KinematicBody2D" parent="Grounds" groups=[ "Ground" ]]
 
-transform/pos = Vector2( 139.717, 364.472 )
-transform/rot = 89.9056
-transform/scale = Vector2( 4.3594, 1 )
+transform/pos = Vector2( 512.458, 106.12 )
+transform/scale = Vector2( 12.123, 1 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -123,22 +124,22 @@ collision/mask = 1
 collision/margin = 0.08
 __meta__ = { "_edit_group_":true }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grounds/Ground1"]
 
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
-[node name="GroundSprite" type="Sprite" parent="Ground2"]
+[node name="GroundSprite" type="Sprite" parent="Grounds/Ground1"]
 
 transform/scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
-[node name="Ground3" type="KinematicBody2D" parent="."]
+[node name="Ground2" type="KinematicBody2D" parent="Grounds"]
 
-transform/pos = Vector2( 889.532, 365.472 )
-transform/rot = 89.9056
-transform/scale = Vector2( 4.3594, 1 )
+transform/pos = Vector2( 139.841, 289.2 )
+transform/rot = 90.0
+transform/scale = Vector2( 6.71165, 1 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -148,20 +149,22 @@ collision/mask = 1
 collision/margin = 0.08
 __meta__ = { "_edit_group_":true }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grounds/Ground2"]
 
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
-[node name="GroundSprite" type="Sprite" parent="Ground3"]
+[node name="GroundSprite" type="Sprite" parent="Grounds/Ground2"]
 
 transform/scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
-[node name="Ground1" type="KinematicBody2D" parent="."]
+[node name="Ground3" type="KinematicBody2D" parent="Grounds"]
 
-transform/pos = Vector2( 548.876, 453.295 )
+transform/pos = Vector2( 890.684, 288.847 )
+transform/rot = 90.0
+transform/scale = Vector2( 6.71165, 1 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -171,37 +174,13 @@ collision/mask = 1
 collision/margin = 0.08
 __meta__ = { "_edit_group_":true }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grounds/Ground3"]
 
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
-[node name="GroundSprite" type="Sprite" parent="Ground1"]
-
-transform/scale = Vector2( 2, 2 )
-texture = ExtResource( 3 )
-
-[node name="Ground4" type="KinematicBody2D" parent="."]
-
-transform/pos = Vector2( 704.718, 313.858 )
-transform/scale = Vector2( 0.994881, 1 )
-input/pickable = false
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-collision/margin = 0.08
-__meta__ = { "_edit_group_":true }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground4"]
-
-shape = SubResource( 2 )
-trigger = false
-_update_shape_index = 0
-
-[node name="GroundSprite" type="Sprite" parent="Ground4"]
+[node name="GroundSprite" type="Sprite" parent="Grounds/Ground3"]
 
 transform/scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )

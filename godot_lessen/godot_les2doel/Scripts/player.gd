@@ -1,8 +1,8 @@
 extends RigidBody2D
 
-export var player_speed = 200
+export var player_speed = 1000
 export var jumpforce = 1000
-export var acceleration = 5
+export var acceleration = 25
 export var extra_grav = 5
 
 var raycast_down = null
